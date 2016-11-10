@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     public float jumpForce = 50;
     private Vector3 startPosition;
     private new Rigidbody2D rigidbody2D;
+
+    private bool isDucking = false;
     
 
     // Use this for initialization
@@ -35,6 +37,20 @@ public class Player : MonoBehaviour {
             rigidbody2D.velocity += Vector2.up * jumpForce;
         }
 
+        // Duck if needed
+        if (Input.GetAxisRaw("Vertical") < 0 && !isDucking)
+        {
+            transform.localScale *= .5f;
+            isDucking = true;
+        }
+
+        if (Input.GetAxisRaw("Vertical") >= 0 && isDucking)
+        {
+            transform.localScale *= 2;
+            isDucking = false;
+        }
+
+        //Flip to look in right direction
         if (rigidbody2D.velocity.x > 0)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0); 

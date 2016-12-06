@@ -22,8 +22,9 @@ public class Weapon : MonoBehaviour
         var r = Instantiate(projectile);
         r.transform.parent = transform;
         r.transform.localPosition = new Vector3(3, 0);
+        r.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(2, 0));
+
         r.transform.parent = null;
-        r.GetComponent<Rigidbody2D>().velocity = new Vector2(2, 0);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

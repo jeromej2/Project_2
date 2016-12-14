@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-    
+ 
 
     // Use this for initialization
     void Start()
@@ -26,5 +26,6 @@ public class Enemy : MonoBehaviour
             player.Die();
         }
 
+       
     }
 }

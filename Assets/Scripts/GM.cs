@@ -30,9 +30,10 @@ public class GM : MonoBehaviour
         points+= worth;
         scoreText.text = points.ToString();
 
-        if (points == 10)
+        if (points == 25)
         {
             winSign.SetActive(true);
+            Application.LoadLevel("level_2");
         }
     }
 

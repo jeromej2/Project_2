@@ -21,8 +21,10 @@ public class Weapon : MonoBehaviour
     {
         var r = Instantiate(projectile);
         r.transform.parent = transform;
+        r.transform.localScale = new Vector3(1, 1);
         r.transform.localPosition = new Vector3(3, 0);
-        r.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(2, 0));
+        r.transform.localRotation = new Quaternion();
+        r.GetComponent<Rigidbody2D>().AddForce(r.transform.TransformDirection(new Vector2(1000, 0)));
 
         r.transform.parent = null;
     }
@@ -36,5 +38,7 @@ public class Weapon : MonoBehaviour
             this.transform.parent = player.transform;
             this.transform.localPosition = new Vector3(0.5f, 0.1f);
         }
+
     }
+
 }
